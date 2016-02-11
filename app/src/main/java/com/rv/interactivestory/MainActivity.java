@@ -1,5 +1,6 @@
 package com.rv.interactivestory;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,10 +26,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String name = mNameField.getText().toString();
 
-                Toast.makeText(MainActivity.this,name,Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this,name,Toast.LENGTH_SHORT).show();
+                startStoryActivity(name);
             }
         };
 
         mStartButton.setOnClickListener(listener);
+    }
+
+    private void startStoryActivity(String name) {
+        Intent intent = new Intent(MainActivity.this,StoryActivity.class);
+        startActivity(intent);
     }
 }
